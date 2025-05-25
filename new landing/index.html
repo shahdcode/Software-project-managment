@@ -1,175 +1,425 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>PuzzleVerse</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
 
-		<!-- Wrapper -->
-		<div id="wrapper">
+<head>
+	<title>PuzzleVerse</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
 
-			<!-- Header -->
-			<header id="header" class="alt">
-				<span class="logo"><img src="images/logo.svg" alt="" /></span>
-				<h1>PuzzleVerse</h1>
-				<p>A universe of challenges awaits!<br />
-				Sharpen your mind, solve puzzles, and enjoy endless fun.</p>
-			</header>
 
-			<!-- Nav -->
-			<nav id="nav">
-				<ul>
-					<li><a href="#intro" class="active">Introduction</a></li>
-					<li><a href="#first">Home</a></li>
-					<li><a href="#second">Play</a></li>
-					<li><a href="#cta">About us</a></li>
-				</ul>
-			</nav>
 
-			<!-- Main -->
-			<div id="main">
+	<style>
+		/* Modal Styling */
+		.modal {
+			display: none;
+			/* Hidden by default */
+			position: fixed;
+			z-index: 1;
+			/* Sit on top */
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			/* Enable scroll if needed */
+			background-color: rgb(0, 0, 0);
+			/* Fallback color */
+			background-color: rgba(0, 0, 0, 0.8);
+			/* Dark background w/ opacity */
+		}
 
-				<!-- Introduction -->
-				<section id="intro" class="main">
-					<div class="spotlight">
-						<div class="content">
-							<header class="major">
-								<h2>Welcome to PuzzleVerse</h2>
-							</header>
-							<p>Get ready to dive into a world where each piece fits perfectly. Upload your own image or select from our gallery and watch it transform into an interactive puzzle challenge. PuzzleVerse brings fun, focus, and logic together in an engaging experience.</p>
-							<ul class="actions">
-								<li><a href="generic.html" class="button">Start Exploring</a></li>
-							</ul>
-						</div>
-						<span class="image"><img src="images/pic01.jpg" alt="" /></span>
-					</div>
-				</section>
+		.modal-content {
+			background-color: #2c003e;
+			/* Dark purple background */
+			margin: 10% auto;
+			padding: 30px;
+			border: 1px solid #8e44ad;
+			/* Border color for emphasis */
+			width: 80%;
+			max-width: 400px;
+			border-radius: 10px;
+			color: rgb(0, 0, 0);
+		}
 
-				<!-- First Section -->
-				<section id="first" class="main special">
-					<header class="major">
-						<h2>Why PuzzleVerse?</h2>
-					</header>
-					<ul class="features">
-						<li>
-							<span class="icon solid major style1 fa-code"></span>
-							<h3>Smart Puzzle Logic</h3>
-							<p>Behind the scenes, powerful logic splits your image into challenging pieces to test your brain and reflexes.</p>
-						</li>
-						<li>
-							<span class="icon major style3 fa-copy"></span>
-							<h3>Multiple Modes</h3>
-							<p>Play solo, race against the clock, or challenge your friends. PuzzleVerse adapts to your playstyle.</p>
-						</li>
-						<li>
-							<span class="icon major style5 fa-gem"></span>
-							<h3>Rewarding Fun</h3>
-							<p>Earn points, unlock levels, and top the leaderboard as you complete puzzles with precision and speed.</p>
-						</li>
-					</ul>
-					<footer class="major">
-						<ul class="actions special">
-							<li><a href="generic.html" class="button">Learn More</a></li>
-						</ul>
-					</footer>
-				</section>
+		.modal-header h2 {
+			font-size: 24px;
+			color: white;
+			/* Change text color to white */
+			text-align: center;
+			margin-bottom: 20px;
+		}
 
-				<!-- Second Section -->
-				<section id="second" class="main special">
-					<header class="major">
-						<h2>Play, Compete, Improve</h2>
-						<p>Step into the puzzle arena. Challenge yourself with custom difficulty levels and track your progress as you improve your solving skills.</p>
-					</header>
-					<ul class="statistics">
-						<li class="style1">
-							<span class="icon solid fa-code-branch"></span>
-							<strong>10K+</strong> Puzzles Created
-						</li>
-						<li class="style2">
-							<span class="icon fa-folder-open"></span>
-							<strong>8K+</strong> Images Uploaded
-						</li>
-						<li class="style3">
-							<span class="icon solid fa-signal"></span>
-							<strong>2K+</strong> Daily Challenges
-						</li>
-						<li class="style4">
-							<span class="icon solid fa-laptop"></span>
-							<strong>5K+</strong> Active Players
-						</li>
-						<li class="style5">
-							<span class="icon fa-gem"></span>
-							<strong>Top 500</strong> Leaderboard Ranks
-						</li>
-					</ul>
-					<p class="content">PuzzleVerse is designed to challenge and entertain. Upload your image, let our system slice it into pieces, and start playing. The more you play, the more rewards you earn and the better your logic and memory become. Compete globally or enjoy in solitude — PuzzleVerse is your puzzle playground.</p>
-					<footer class="major">
-						<ul class="actions special">
-							<li><a href="generic.html" class="button">Play Now</a></li>
-						</ul>
-					</footer>
-				</section>
+		.modal-body {
+			color: #000000;
+			font-size: 16px;
+		}
 
-				<!-- Get Started -->
-				<section id="cta" class="main special">
-					<header class="major">
-						<h2>About PuzzleVerse</h2>
-						<p>PuzzleVerse was crafted with passion for puzzles and technology. Our mission is to make puzzle-solving fun, intuitive, and accessible for everyone.</p>
-					</header>
-					<footer class="major">
-						<ul class="actions special">
-							<li><a href="generic.html" class="button primary">Get Started</a></li>
-							<li><a href="generic.html" class="button">Learn More</a></li>
-						</ul>
-					</footer>
-				</section>
+		.login-input {
+			width: 100%;
+			padding: 12px;
+			margin: 10px 0;
+			background-color: #512c6b;
+			/* Darker purple for input */
+			border: 1px solid #8e44ad;
+			color: #000000;
+			border-radius: 5px;
+			font-size: 14px;
+		}
 
+		.login-btn {
+			width: 100%;
+			padding: 12px;
+			background-color: #8e44ad;
+			/* Purple button */
+			color: rgb(0, 0, 0);
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			margin-top: 10px;
+		}
+
+		.login-btn:hover {
+			background-color: #9b59b6;
+			/* Lighter shade of purple on hover */
+		}
+
+		.close {
+			color: #fff;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #8e44ad;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
+
+</head>
+
+<body class="is-preload">
+	<!-- The Login Modal -->
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div class="modal-header">
+				<h2>Login</h2>
 			</div>
+			<div class="modal-body">
+				<form id="loginForm">
+					<input type="email" id="email" class="login-input" placeholder="Email" required>
+					<input type="password" id="password" class="login-input" placeholder="Password" required>
+					<button type="submit" class="login-btn">Login</button>
+				</form>
+			</div>
+		</div>
+	</div>
 
-			<!-- Footer -->
-			<footer id="footer">
-				<section>
-					<h2>Join the PuzzleVerse Community</h2>
-					<p>Become part of our growing puzzle-loving family. Share your creations, challenge others, and celebrate your achievements. We're just getting started, and the universe of puzzles is infinite!</p>
-					<ul class="actions">
-						<li><a href="generic.html" class="button">Get Involved</a></li>
+	<!-- The Register Modal -->
+	<div id="registerModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div class="modal-header">
+				<h2>Register</h2>
+			</div>
+			<div class="modal-body">
+				<form id="registerForm">
+					<input type="email" id="registerEmail" class="login-input" placeholder="Email" required>
+					<input type="password" id="registerPassword" class="login-input" placeholder="Password" required>
+					<button type="submit" class="login-btn">Register</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<span class="logo"><img src="images/logo.svg" alt="" /></span>
+			<h1>PuzzleVerse</h1>
+			<p>A universe of challenges awaits!<br />
+				Sharpen your mind, solve puzzles, and enjoy endless fun.</p>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li><a href="#intro" class="active">Introduction</a></li>
+				<li><a href="#first">Home</a></li>
+				<li><a href="#second">Play</a></li>
+				<li><a href="#cta">About us</a></li>
+				<li><a href="#reviews">Reviews</a></li>
+				<li>
+					<div class="user-panel">
+						<!-- Trigger/Open The Modal for Login -->
+						<a href="javascript:void(0);" id="myBtn" style="color: rgb(0, 0, 0);">Login</a> /
+						<!-- Trigger/Open The Modal for Register -->
+						<a href="javascript:void(0);" id="registerBtn" style="color: rgb(2, 2, 2);">Register</a>
+					</div>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Introduction -->
+			<section id="intro" class="main">
+				<div class="spotlight">
+					<div class="content">
+						<header class="major">
+							<h2>Welcome to PuzzleVerse</h2>
+						</header>
+						<p>Get ready to dive into a world where each piece fits perfectly. Upload your own image or
+							select from our gallery and watch it transform into an interactive puzzle challenge.
+							PuzzleVerse brings fun, focus, and logic together in an engaging experience.</p>
+						<ul class="actions">
+							<li><a href="generic.html" class="button">Start Exploring</a></li>
+						</ul>
+					</div>
+					<span class="image"><img src="images/pic01.jpg" alt="" /></span>
+				</div>
+			</section>
+
+			<!-- First Section -->
+			<section id="first" class="main special">
+				<header class="major">
+					<h2>Why PuzzleVerse?</h2>
+				</header>
+				<ul class="features">
+					<li>
+						<span class="icon solid major style1 fa-code"></span>
+						<h3>Smart Puzzle Logic</h3>
+						<p>Behind the scenes, powerful logic splits your image into challenging pieces to test your
+							brain and reflexes.</p>
+					</li>
+					<li>
+						<span class="icon major style3 fa-copy"></span>
+						<h3>Multiple Modes</h3>
+						<p>Play solo, race against the clock, or challenge your friends. PuzzleVerse adapts to your
+							playstyle.</p>
+					</li>
+					<li>
+						<span class="icon major style5 fa-gem"></span>
+						<h3>Rewarding Fun</h3>
+						<p>Earn points, unlock levels, and top the leaderboard as you complete puzzles with precision
+							and speed.</p>
+					</li>
+				</ul>
+				<footer class="major">
+					<ul class="actions special">
+						<li><a href="generic.html" class="button">Learn More</a></li>
 					</ul>
-				</section>
-				<section>
-					<h2>Contact Us</h2>
-					<dl class="alt">
-						<dt>Address</dt>
-						<dd>Online Only • PuzzleVerse HQ</dd>
-						<dt>Phone</dt>
-						<dd>(000) 123-4567</dd>
-						<dt>Email</dt>
-						<dd><a href="#">support@puzzleverse.com</a></dd>
-					</dl>
-					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
+				</footer>
+			</section>
+
+			<!-- Second Section -->
+			<section id="second" class="main special">
+				<header class="major">
+					<h2>Play, Compete, Improve</h2>
+					<p>Step into the puzzle arena. Challenge yourself with custom difficulty levels and track your
+						progress as you improve your solving skills.</p>
+				</header>
+				<ul class="statistics">
+					<li class="style1">
+						<span class="icon solid fa-code-branch"></span>
+						<strong>10K+</strong> Puzzles Created
+					</li>
+					<li class="style2">
+						<span class="icon fa-folder-open"></span>
+						<strong>8K+</strong> Images Uploaded
+					</li>
+					<li class="style3">
+						<span class="icon solid fa-signal"></span>
+						<strong>2K+</strong> Daily Challenges
+					</li>
+					<li class="style4">
+						<span class="icon solid fa-laptop"></span>
+						<strong>5K+</strong> Active Players
+					</li>
+					<li class="style5">
+						<span class="icon fa-gem"></span>
+						<strong>Top 500</strong> Leaderboard Ranks
+					</li>
+				</ul>
+				<p class="content">PuzzleVerse is designed to challenge and entertain. Upload your image, let our system
+					slice it into pieces, and start playing. The more you play, the more rewards you earn and the better
+					your logic and memory become. Compete globally or enjoy in solitude — PuzzleVerse is your puzzle
+					playground.</p>
+				<footer class="major">
+					<ul class="actions special">
+						<li><a href="generic.html" class="button">Play Now</a></li>
 					</ul>
-				</section>
-				<p class="copyright">&copy; PuzzleVerse. Design by <a href="https://html5up.net">HTML5 UP</a>.</p>
-			</footer>
+				</footer>
+			</section>
+
+			<section id="reviews" class="main special">
+				<header class="major">
+					<h2>Reviews</h2>
+					<p>From beginners to champions, every solver has a story.</p>
+				</header>
+				<footer class="major">
+					<ul class="actions special">
+						<li><a href="reviews2.html" class="button primary">Check Reviews</a></li>
+					</ul>
+				</footer>
+			</section>
+
+			<!-- Get Started -->
+			<section id="cta" class="main special">
+				<header class="major">
+					<h2>About PuzzleVerse</h2>
+					<p>PuzzleVerse was crafted with passion for puzzles and technology. Our mission is to make
+						puzzle-solving fun, intuitive, and accessible for everyone.</p>
+				</header>
+				<footer class="major">
+					<ul class="actions special">
+						<li><a href="generic.html" class="button primary">Get Started</a></li>
+						<li><a href="generic.html" class="button">Learn More</a></li>
+					</ul>
+				</footer>
+			</section>
+
+
 
 		</div>
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+		<!-- Footer -->
+		<footer id="footer">
+			<section>
+				<h2>Join the PuzzleVerse Community</h2>
+				<p>Become part of our growing puzzle-loving family. Share your creations, challenge others, and
+					celebrate your achievements. We're just getting started, and the universe of puzzles is infinite!
+				</p>
+				<ul class="actions">
+					<li><a href="generic.html" class="button">Get Involved</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Contact Us</h2>
+				<dl class="alt">
+					<dt>Address</dt>
+					<dd>Online Only • PuzzleVerse HQ</dd>
+					<dt>Phone</dt>
+					<dd>(000) 123-4567</dd>
+					<dt>Email</dt>
+					<dd><a href="#">support@puzzleverse.com</a></dd>
+				</dl>
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
+				</ul>
+			</section>
+			
+		</footer>
 
-	</body>
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+
+	<script>
+		// Get the modal for Login
+		var modal = document.getElementById("myModal");
+
+		// Get the modal for Register
+		var registerModal = document.getElementById("registerModal");
+
+		// Get the button that opens the modal for Login
+		var btn = document.getElementById("myBtn");
+
+		// Get the button that opens the modal for Register
+		var registerBtn = document.getElementById("registerBtn");
+
+		// Get the <span> element that closes the modal for Login
+		var span = document.getElementsByClassName("close")[0];
+
+		// Get the <span> element that closes the modal for Register
+		var registerSpan = document.getElementsByClassName("close")[1];
+
+		// When the user clicks the button for Login, open the modal
+		btn.onclick = function () {
+			modal.style.display = "block";
+		}
+
+		// When the user clicks the button for Register, open the modal
+		registerBtn.onclick = function () {
+			registerModal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x) for Login, close the modal
+		span.onclick = function () {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks on <span> (x) for Register, close the modal
+		registerSpan.onclick = function () {
+			registerModal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal for Login, close it
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+			if (event.target == registerModal) {
+				registerModal.style.display = "none";
+			}
+		}
+
+		// Form Validation for Login
+		const loginForm = document.getElementById('loginForm');
+		const emailField = document.getElementById('email');
+		const passwordField = document.getElementById('password');
+
+		loginForm.addEventListener('submit', function (event) {
+			event.preventDefault();
+
+			if (emailField.value.trim() === '' || passwordField.value.trim() === '') {
+				alert("Please fill in both fields.");
+			} else {
+				alert('Login successful!');
+				modal.style.display = "none"; // Close modal on successful login
+			}
+		});
+
+		// Form Validation for Register
+		const registerForm = document.getElementById('registerForm');
+		const registerEmailField = document.getElementById('registerEmail');
+		const registerPasswordField = document.getElementById('registerPassword');
+
+		registerForm.addEventListener('submit', function (event) {
+			event.preventDefault();
+
+			if (registerEmailField.value.trim() === '' || registerPasswordField.value.trim() === '') {
+				alert("Please fill in both fields.");
+			} else {
+				alert('Registration successful!');
+				registerModal.style.display = "none"; // Close modal on successful registration
+			}
+		});
+	</script>
+
+</body>
+
 </html>
