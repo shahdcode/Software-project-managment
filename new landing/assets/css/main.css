@@ -3794,25 +3794,37 @@ input, select, textarea {
       cursor: pointer;
     }
 
+/* Menu positioning in top left */
     #menu {
-      position: relative;
-      list-style-type: none;
-      padding-left: 5px;
-      z-index: 1000;
-      /* 1 */
-      display: inline-block;
-      text-align: center;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 5px;
+        list-style: none;
+        margin: 0;
     }
 
     #menu li {
-      margin: 2px;
-      padding: 4px 10px;
-      border-radius: 5px;
-      /* background-color: #ffff80; */
+        color: white;
+        padding: 5px 10px;
+        margin: 5px 0;
+        cursor: pointer;
+        transition: background 0.3s;
     }
 
     #menu li:hover {
-      background-color: #dccce6;
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    #menu select {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 3px;
+        border-radius: 3px;
     }
 
     #forPuzzle {
@@ -3825,6 +3837,7 @@ input, select, textarea {
       background-color: white;
       overflow: hidden;
     }
+	
 
     .polypiece {
       display: block;
